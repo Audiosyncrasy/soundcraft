@@ -292,7 +292,8 @@ fn f6_f7_and_f7_f8_in_either_order_choose_the_smart_tool() {
         frame(&ctx, &mut app, vec![key_event(first, false, Modifiers::NONE)]);
         assert_eq!(tool(&app), "smart", "{first:?}+{second:?}");
     }
-    for (k, want) in [(Key::F6, "trim"), (Key::F7, "selector"), (Key::F8, "grabber")] {
+    let alone = [(Key::F5, "zoom"), (Key::F6, "trim"), (Key::F7, "selector"), (Key::F8, "grabber"), (Key::F9, "scrubber"), (Key::F10, "pencil")];
+    for (k, want) in alone {
         frame(&ctx, &mut app, key(k));
         assert_eq!(tool(&app), want, "{k:?} alone");
     }
